@@ -28,6 +28,8 @@ server.on('request', (req, res) => {
       console.log('Request:', friend);
       friends.push(JSON.parse(friend));
     });
+    // connect request and response
+    req.pipe(res);
   } else if (req.method === 'GET' && items[1] === 'friends') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
